@@ -8,6 +8,7 @@ import DashboardPage from "./pages/commons/DashboardPage.jsx";
 import AddNewPatientPage from "./pages/patients/AddNewPatientPage.jsx";
 import DischargePage from "./pages/patients/DischargePage.jsx";
 import EditPatientPage from "./pages/patients/EditPatientPage.jsx";
+import SearchResultPage from "./pages/commons/SearchResultPage.jsx";
 
 function InnerApp() {
     // const navigate = useNavigate()
@@ -32,6 +33,7 @@ function InnerApp() {
                 <Route path={"/new-patient"} element={<AddNewPatientPage/>}/>
                 <Route path="/discharge-patient" element={<DischargePage/>}/>
                 <Route path="/edit-patient" element={<EditPatientPage/>}/>
+                <Route path="/search-result" element={<SearchResultPage/>}/>
             </Routes>
         </>
     )

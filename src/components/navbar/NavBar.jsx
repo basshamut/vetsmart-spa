@@ -47,6 +47,10 @@ const Navbar = () => {
         navigate('/login');
     }
 
+    const handleSeaerch = () => {
+        navigate('/search-result');
+    }
+
     const end = (
         <div className="p-d-flex p-ai-center">
             <Button icon="pi pi-search" className="p-button-rounded p-button-text p-button-plain"
@@ -59,8 +63,6 @@ const Navbar = () => {
                     onClick={() => setNotificationsVisible(true)}>
                 <Badge value="15" severity="warning"/>
             </Button>
-            <Button icon="pi pi-expand" className="p-button-rounded p-button-text p-button-plain"/>
-            <Button icon="pi pi-th-large" className="p-button-rounded p-button-text p-button-plain"/>
             <Button icon="pi pi-sign-out" className="p-button-rounded p-button-text p-button-plain"
                     onClick={handleLogout}/>
         </div>
@@ -74,7 +76,7 @@ const Navbar = () => {
                     onHide={() => setSearchVisible(false)}>
                 <div className="p-inputgroup">
                     <InputText placeholder="Search"/>
-                    <Button icon="pi pi-search"/>
+                    <Button icon="pi pi-search" onClick={handleSeaerch}/>
                 </div>
             </Dialog>
 
