@@ -2,7 +2,7 @@ name: VetSmart Deploy
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
 
 jobs:
   build:
@@ -15,10 +15,20 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'  # Asegúrate de usar la versión adecuada de Node.js
+          node-version: '22'
 
       - name: Install dependencies for frontend
         run: npm install
+
+      - name: Create frontend .env file
+        env:
+          VITE_API_URL: ${{ secrets.VITE_API_URL }}
+          VITE_SERVICE_USR: ${{ secrets.VITE_SERVICE_USR }}
+          VITE_SERVICE_PASS: ${{ secrets.VITE_SERVICE_PASS }}
+        run: |
+          echo "VITE_API_URL=${VITE_API_URL}" > .env
+          echo "VITE_SERVICE_USR=${VITE_SERVICE_USR}" >> .env
+          echo "VITE_SERVICE_PASS=${VITE_SERVICE_PASS}" >> .env
 
       - name: Build frontend
         run: npm run build
@@ -36,10 +46,11 @@ jobs:
           sshpass -p "${SSH_PASSWORD}" ssh -o StrictHostKeyChecking=no "${SSH_USERNAME}@${SSH_HOST}" 'mkdir -p /var/www/html/vetsmart'
 
           # Copiar el build del frontend al VPS
-          sshpass -p "${SSH_PASSWORD}" rsync -avz --delete -e "sshpass -p '${SSH_PASSWORD}' ssh -o StrictHostKeyChecking=no" ./dist/ "${SSH_USERNAME}@${SSH_HOST}:/var/www/html/vetsmart"
+          rsync -avz --delete -e "sshpass -p '${SSH_PASSWORD}' ssh -o StrictHostKeyChecking=no" dist/ "${SSH_USERNAME}@${SSH_HOST}:/var/www/html/vetsmart"
+          rsync -avz -e "sshpass -p '${SSH_PASSWORD}' ssh -o StrictHostKeyChecking=no" frontend/.env "${SSH_USERNAME}@${SSH_HOST}:/var/www/html/vetsmart/.env"
 
           # Comando adicional para asegurarse de que los permisos sean correctos y Nginx se reinicie
           sshpass -p "${SSH_PASSWORD}" ssh -o StrictHostKeyChecking=no "${SSH_USERNAME}@${SSH_HOST}" << 'EOF'
-            sudo chown -R www-data:www-data /var/www/html/vetsmart
-            sudo systemctl restart nginx
-          EOF
+          sudo chown -R www-data:www-data /var/www/html/vetsmart
+          sudo systemctl restart nginx
+  EOF
