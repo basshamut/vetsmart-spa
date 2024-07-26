@@ -53,4 +53,5 @@ jobs:
           sshpass -p "${SSH_PASSWORD}" ssh -o StrictHostKeyChecking=no "${SSH_USERNAME}@${SSH_HOST}" << 'EOF'
           sudo chown -R www-data:www-data /var/www/html/vetsmart
           sudo systemctl restart nginx
-  EOF
+          exit
+          EOF
