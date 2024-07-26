@@ -48,4 +48,5 @@ jobs:
           # Copiar el build del frontend al VPS
           rsync -avz --delete -e "sshpass -p '${SSH_PASSWORD}' ssh -o StrictHostKeyChecking=no" dist/ "${SSH_USERNAME}@${SSH_HOST}:/var/www/html/vetsmart"
           rsync -avz -e "sshpass -p '${SSH_PASSWORD}' ssh -o StrictHostKeyChecking=no" .env "${SSH_USERNAME}@${SSH_HOST}:/var/www/html/vetsmart/.env"
+          exit
           EOF
