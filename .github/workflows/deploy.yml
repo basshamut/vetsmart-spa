@@ -21,15 +21,15 @@ jobs:
         run: |
           npm install 
 
-#      - name: Create .env file
-#        env:
-#          VITE_API_URL: ${{ secrets.VITE_API_URL }}
-#          VITE_SERVICE_USR: ${{ secrets.VITE_SERVICE_USR }}
-#          VITE_SERVICE_PASS: ${{ secrets.VITE_SERVICE_PASS }}
-#        run: |
-#          echo "VITE_API_URL=${VITE_API_URL}" > .env
-#          echo "VITE_SERVICE_USR=${VITE_SERVICE_USR}" >> .env
-#          echo "VITE_SERVICE_PASS=${VITE_SERVICE_PASS}" >> .env
+      #      - name: Create .env file
+      #        env:
+      #          VITE_API_URL: ${{ secrets.VITE_API_URL }}
+      #          VITE_SERVICE_USR: ${{ secrets.VITE_SERVICE_USR }}
+      #          VITE_SERVICE_PASS: ${{ secrets.VITE_SERVICE_PASS }}
+      #        run: |
+      #          echo "VITE_API_URL=${VITE_API_URL}" > .env
+      #          echo "VITE_SERVICE_USR=${VITE_SERVICE_USR}" >> .env
+      #          echo "VITE_SERVICE_PASS=${VITE_SERVICE_PASS}" >> .env
 
       - name: Build frontend
         run: |
@@ -44,11 +44,11 @@ jobs:
           SSH_USERNAME: ${{ secrets.VPS_SSH_USERNAME }}
           SSH_PASSWORD: ${{ secrets.VPS_SSH_PASSWORD }}
         run: |
-          # Crear directorios en el VPS
-          sshpass -p "${SSH_PASSWORD}" ssh -o StrictHostKeyChecking=no "${SSH_USERNAME}@${SSH_HOST}" 'mkdir -p /var/www/html/vetsmart'
-
-          # Copiar el build del frontend al VPS
-          rsync -avz --delete -e "sshpass -p '${SSH_PASSWORD}' ssh -o StrictHostKeyChecking=no" frontend/dist/ "${SSH_USERNAME}@${SSH_HOST}:/var/www/html/vetsmart"
-#          rsync -avz -e "sshpass -p '${SSH_PASSWORD}' ssh -o StrictHostKeyChecking=no" frontend/.env "${SSH_USERNAME}@${SSH_HOST}:/var/www/html/vetsmart/.env"
-
-          EOF
+               # Crear directorios en el VPS
+               sshpass -p "${SSH_PASSWORD}" ssh -o StrictHostKeyChecking=no "${SSH_USERNAME}@${SSH_HOST}" 'mkdir -p /var/www/html/vetsmart'
+               
+               # Copiar el build del frontend al VPS
+               rsync -avz --delete -e "sshpass -p '${SSH_PASSWORD}' ssh -o StrictHostKeyChecking=no" frontend/dist/ "${SSH_USERNAME}@${SSH_HOST}:/var/www/html/vetsmart"
+          #          rsync -avz -e "sshpass -p '${SSH_PASSWORD}' ssh -o StrictHostKeyChecking=no" frontend/.env "${SSH_USERNAME}@${SSH_HOST}:/var/www/html/vetsmart/.env"
+               
+               EOF
