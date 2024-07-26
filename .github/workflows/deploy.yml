@@ -2,7 +2,7 @@ name: VetSmart Deploy
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
@@ -15,7 +15,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '22'
+          node-version: '16'  # Asegúrate de usar la versión adecuada de Node.js
 
       - name: Install dependencies for frontend
         run: npm install
@@ -30,16 +30,16 @@ jobs:
         env:
           SSH_HOST: ${{ secrets.VPS_SSH_HOST }}
           SSH_USERNAME: ${{ secrets.VPS_SSH_USERNAME }}
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}  # Utiliza la clave SSH privada
+          SSH_PASSWORD: ${{ secrets.VPS_SSH_PASSWORD }}
         run: |
           # Crear directorios en el VPS
-          ssh -i <(echo "${SSH_PRIVATE_KEY}") -o StrictHostKeyChecking=no "${SSH_USERNAME}@${SSH_HOST}" 'mkdir -p /var/www/html/vetsmart'
+          sshpass -p "${SSH_PASSWORD}" ssh -o StrictHostKeyChecking=no "${SSH_USERNAME}@${SSH_HOST}" 'mkdir -p /var/www/html/vetsmart'
 
           # Copiar el build del frontend al VPS
-          rsync -avz --delete -e "ssh -i <(echo '${SSH_PRIVATE_KEY}') -o StrictHostKeyChecking=no" ./dist/ "${SSH_USERNAME}@${SSH_HOST}:/var/www/html/vetsmart"
-          
+          sshpass -p "${SSH_PASSWORD}" rsync -avz --delete -e "sshpass -p '${SSH_PASSWORD}' ssh -o StrictHostKeyChecking=no" ./dist/ "${SSH_USERNAME}@${SSH_HOST}:/var/www/html/vetsmart"
+
           # Comando adicional para asegurarse de que los permisos sean correctos y Nginx se reinicie
-          ssh -i <(echo "${SSH_PRIVATE_KEY}") -o StrictHostKeyChecking=no "${SSH_USERNAME}@${SSH_HOST}" << 'EOF'
+          sshpass -p "${SSH_PASSWORD}" ssh -o StrictHostKeyChecking=no "${SSH_USERNAME}@${SSH_HOST}" << 'EOF'
             sudo chown -R www-data:www-data /var/www/html/vetsmart
             sudo systemctl restart nginx
           EOF
