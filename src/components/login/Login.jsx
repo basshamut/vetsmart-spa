@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {useNavigate} from "react-router-dom"; // Asegúrate de crear este archivo y agregarlo al proyecto
+import {useNavigate} from "react-router-dom";
 import {InputText} from 'primereact/inputtext';
 import {Button} from 'primereact/button';
 import {Card} from 'primereact/card';
