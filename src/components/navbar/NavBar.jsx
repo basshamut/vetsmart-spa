@@ -18,7 +18,7 @@ const Navbar = () => {
         {
             label: 'Home',
             icon: 'pi pi-home',
-            url: '/dashboard'
+            url: '/vetsmart/dashboard'
         },
         {
             label: 'Gestión de Pacientes',
@@ -26,17 +26,17 @@ const Navbar = () => {
             items: [
                 {
                     label: 'Ingresar Datos', icon: 'pi pi-plus', command: () => {
-                        navigate('/new-patient')
+                        navigate('/vetsmart/new-patient')
                     }
                 },
                 {
                     label: 'Editar Datos', icon: 'pi pi-pencil', command: () => {
-                        navigate('/edit-patient')
+                        navigate('/vetsmart/edit-patient')
                     }
                 },
                 {
                     label: 'Dar de Alta', icon: 'pi pi-user-minus', command: () => {
-                        navigate('/discharge-patient')
+                        navigate('/vetsmart/discharge-patient')
                     }
                 }
             ]
@@ -44,11 +44,11 @@ const Navbar = () => {
     ];
 
     const handleLogout = () => {
-        navigate('/login');
+        navigate('/vetsmart/login');
     }
 
     const handleSeaerch = () => {
-        navigate('/search-result');
+        navigate('/vetsmart/search-result');
     }
 
     const end = (

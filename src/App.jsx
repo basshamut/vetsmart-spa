@@ -27,13 +27,13 @@ function InnerApp() {
         <>
 
             <Routes>
-                <Route path="/" element={<LoginPage/>}/>
-                <Route path="/login" element={<LoginPage/>}/>
-                <Route path="/dashboard" element={<DashboardPage/>}/>
-                <Route path={"/new-patient"} element={<AddNewPatientPage/>}/>
-                <Route path="/discharge-patient" element={<DischargePage/>}/>
-                <Route path="/edit-patient" element={<EditPatientPage/>}/>
-                <Route path="/search-result" element={<SearchResultPage/>}/>
+                <Route path="/vetsmart" element={<LoginPage/>}/>
+                <Route path="/vetsmart/login" element={<LoginPage/>}/>
+                <Route path="/vetsmart/dashboard" element={<DashboardPage/>}/>
+                <Route path={"/vetsmart/new-patient"} element={<AddNewPatientPage/>}/>
+                <Route path="/vetsmart/discharge-patient" element={<DischargePage/>}/>
+                <Route path="/vetsmart/edit-patient" element={<EditPatientPage/>}/>
+                <Route path="/vetsmart/search-result" element={<SearchResultPage/>}/>
             </Routes>
         </>
     )

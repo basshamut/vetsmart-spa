@@ -15,7 +15,7 @@ const Login = () => {
         e.preventDefault();
         // Lógica de autenticación
         console.log('Usuario:', username, 'Contraseña:', password);
-        navigate("/dashboard")
+        navigate("/vetsmart/dashboard")
     };
 
     return (
