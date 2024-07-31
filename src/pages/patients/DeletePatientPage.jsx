@@ -4,7 +4,7 @@ import {InputText} from "primereact/inputtext";
 import {Button} from "primereact/button";
 import {InputTextarea} from "primereact/inputtextarea";
 
-export default function EditPatientPage() {
+export default function DeletePatientPage() {
     const [patient, setPatient] = useState(null);
     const [searchCriteria, setSearchCriteria] = useState('');
     const [searchResult, setSearchResult] = useState(null);
@@ -84,7 +84,7 @@ export default function EditPatientPage() {
                             <InputText id="patient-age" name="age" value={patient?.age || ''}
                                        onChange={handlePatientChange}/>
                         </div>
-                        <Button type="submit" label="Actualizar Paciente" className="p-mt-2"/>
+                        <Button type="submit" label="Dar de Baja" className="p-mt-2"/>
                     </form>
                 )}
             </div>

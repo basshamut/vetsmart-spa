@@ -5,9 +5,9 @@ import 'primeflex/primeflex.css'
 import 'primeicons/primeicons.css'
 import LoginPage from "./pages/commons/LoginPage.jsx";
 import DashboardPage from "./pages/commons/DashboardPage.jsx";
-import AddNewPatientPage from "./pages/patients/AddNewPatientPage.jsx";
+import PatientPage from "./pages/patients/PatientPage.jsx";
 import DischargePage from "./pages/patients/DischargePage.jsx";
-import EditPatientPage from "./pages/patients/EditPatientPage.jsx";
+import DeletePatientPage from "./pages/patients/DeletePatientPage.jsx";
 import SearchResultPage from "./pages/commons/SearchResultPage.jsx";
 
 function InnerApp() {
@@ -30,9 +30,9 @@ function InnerApp() {
                 <Route path="/vetsmart" element={<LoginPage/>}/>
                 <Route path="/vetsmart/login" element={<LoginPage/>}/>
                 <Route path="/vetsmart/dashboard" element={<DashboardPage/>}/>
-                <Route path={"/vetsmart/new-patient"} element={<AddNewPatientPage/>}/>
+                <Route path={"/vetsmart/new-patient"} element={<PatientPage/>}/>
                 <Route path="/vetsmart/discharge-patient" element={<DischargePage/>}/>
-                <Route path="/vetsmart/edit-patient" element={<EditPatientPage/>}/>
+                <Route path="/vetsmart/delete-patient" element={<DeletePatientPage/>}/>
                 <Route path="/vetsmart/search-result" element={<SearchResultPage/>}/>
             </Routes>
         </>
