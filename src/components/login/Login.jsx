@@ -21,6 +21,7 @@ const Login = () => {
     return (
         <div className="login-container">
             <Card title="Iniciar Sesión" className="login-card">
+                <img src="/vetsmart/logo.svg" alt="Logo" className="login-logo" />
                 <form onSubmit={handleLogin} className="p-fluid">
                     <div className="p-field">
                         <label htmlFor="username">Usuario</label>

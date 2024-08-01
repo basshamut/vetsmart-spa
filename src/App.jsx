@@ -9,6 +9,7 @@ import PatientPage from "./pages/patients/PatientPage.jsx";
 import DischargePage from "./pages/patients/DischargePage.jsx";
 import DeletePatientPage from "./pages/patients/DeletePatientPage.jsx";
 import SearchResultPage from "./pages/commons/SearchResultPage.jsx";
+import AppointmentPage from "./pages/appointment/AppointmentPage.jsx";
 
 function InnerApp() {
     // const navigate = useNavigate()
@@ -34,6 +35,7 @@ function InnerApp() {
                 <Route path="/vetsmart/discharge-patient" element={<DischargePage/>}/>
                 <Route path="/vetsmart/delete-patient" element={<DeletePatientPage/>}/>
                 <Route path="/vetsmart/search-result" element={<SearchResultPage/>}/>
+                <Route path="/vetsmart/apointment" element={<AppointmentPage/>}/>
             </Routes>
         </>
     )

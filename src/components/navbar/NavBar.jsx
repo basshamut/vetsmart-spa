@@ -22,7 +22,7 @@ const Navbar = () => {
         },
         {
             label: 'Gestión de Pacientes',
-            icon: 'pi pi-envelope',
+            icon: 'pi pi-user',
             items: [
                 {
                     label: 'Ingresar Datos', icon: 'pi pi-plus', command: () => {
@@ -35,6 +35,13 @@ const Navbar = () => {
                     }
                 }
             ]
+       },
+        {
+            label: 'Gestión de Citas',
+            icon: 'pi pi-envelope',
+            command: () => {
+                navigate('/vetsmart/apointment')
+            }
         }
     ];
 

@@ -13,3 +13,14 @@
 .p-field {
     margin-bottom: 1rem;
 }
+.login-container {
+    text-align: center; /* Para centrar la imagen y el formulario */
+}
+
+.login-logo {
+    width: 100%;
+    max-width: 300px; /* Máximo ancho de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin-bottom: 20px; /* Espacio entre el logo y el card */
+    object-fit: contain; /* Asegura que la imagen se contenga dentro del contenedor sin cortar */
+}

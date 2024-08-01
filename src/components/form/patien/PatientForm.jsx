@@ -84,7 +84,7 @@ export default function PatientForm({type}) {
                     <InputText id="new-patient-age" name="age" value={patient.patient.age}
                                onChange={(e) => handleNewPatientChange(e, 'patient')}/>
                 </div>
-                <Button type="submit" label="Registrar Paciente" className="p-mt-2"/>
+                <Button type="submit" label="Enviar" className="p-mt-2"/>
 
             </div>
         )
