@@ -30,7 +30,7 @@ const Navbar = () => {
                     }
                 },
                 {
-                    label: 'Editar Datos', icon: 'pi pi-minus', command: () => {
+                    label: 'Dar de Baja', icon: 'pi pi-minus', command: () => {
                         navigate('/vetsmart/delete-patient')
                     }
                 }
