@@ -5,7 +5,9 @@ export default function AppointmentPage() {
     return (
         <div>
             <Navbar/>
-            <Appointment/>
+            <div className="tabview-container card">
+                <Appointment/>
+            </div>
         </div>
     );
 }

@@ -6,7 +6,6 @@ import 'primeicons/primeicons.css'
 import LoginPage from "./pages/commons/LoginPage.jsx"
 import DashboardPage from "./pages/commons/DashboardPage.jsx"
 import PatientPage from "./pages/patients/PatientPage.jsx"
-import DischargePage from "./pages/patients/DischargePage.jsx"
 import DeletePatientPage from "./pages/patients/DeletePatientPage.jsx"
 import SearchResultPage from "./pages/commons/SearchResultPage.jsx"
 import AppointmentPage from "./pages/appointment/AppointmentPage.jsx"
@@ -33,7 +32,6 @@ function InnerApp() {
                 <Route path="/vetsmart/login" element={<LoginPage/>}/>
                 <Route path="/vetsmart/dashboard" element={<DashboardPage/>}/>
                 <Route path={"/vetsmart/new-patient"} element={<PatientPage/>}/>
-                <Route path="/vetsmart/discharge-patient" element={<DischargePage/>}/>
                 <Route path="/vetsmart/delete-patient" element={<DeletePatientPage/>}/>
                 <Route path="/vetsmart/search-result" element={<SearchResultPage/>}/>
                 <Route path="/vetsmart/apointment" element={<AppointmentPage/>}/>
