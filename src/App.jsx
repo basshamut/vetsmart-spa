@@ -3,13 +3,14 @@ import 'primereact/resources/themes/lara-light-green/theme.css'
 import 'primereact/resources/primereact.min.css'
 import 'primeflex/primeflex.css'
 import 'primeicons/primeicons.css'
-import LoginPage from "./pages/commons/LoginPage.jsx";
-import DashboardPage from "./pages/commons/DashboardPage.jsx";
-import PatientPage from "./pages/patients/PatientPage.jsx";
-import DischargePage from "./pages/patients/DischargePage.jsx";
-import DeletePatientPage from "./pages/patients/DeletePatientPage.jsx";
-import SearchResultPage from "./pages/commons/SearchResultPage.jsx";
-import AppointmentPage from "./pages/appointment/AppointmentPage.jsx";
+import LoginPage from "./pages/commons/LoginPage.jsx"
+import DashboardPage from "./pages/commons/DashboardPage.jsx"
+import PatientPage from "./pages/patients/PatientPage.jsx"
+import DischargePage from "./pages/patients/DischargePage.jsx"
+import DeletePatientPage from "./pages/patients/DeletePatientPage.jsx"
+import SearchResultPage from "./pages/commons/SearchResultPage.jsx"
+import AppointmentPage from "./pages/appointment/AppointmentPage.jsx"
+import VaccineAndTreatmentControlPage from "./pages/vaccine/VaccineAndTreatmentControlPage.jsx"
 
 function InnerApp() {
     // const navigate = useNavigate()
@@ -36,6 +37,7 @@ function InnerApp() {
                 <Route path="/vetsmart/delete-patient" element={<DeletePatientPage/>}/>
                 <Route path="/vetsmart/search-result" element={<SearchResultPage/>}/>
                 <Route path="/vetsmart/apointment" element={<AppointmentPage/>}/>
+                <Route path="/vetsmart/vaccine" element={<VaccineAndTreatmentControlPage/>}/>
             </Routes>
         </>
     )
@@ -51,7 +53,7 @@ function App() {
                 </Router>
             </div>
         </>
-    );
+    )
 }
 
-export default App;
+export default App

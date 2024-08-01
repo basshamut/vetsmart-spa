@@ -1,18 +1,18 @@
-import {useState} from 'react';
-import {Menubar} from 'primereact/menubar';
-import {InputText} from 'primereact/inputtext';
-import {Badge} from 'primereact/badge';
-import {Button} from 'primereact/button';
-import {Dialog} from 'primereact/dialog';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faClock, faEnvelope, faFile, faStar, faUsers} from '@fortawesome/free-solid-svg-icons';
-import {useNavigate} from "react-router-dom";
+import {useState} from 'react'
+import {Menubar} from 'primereact/menubar'
+import {InputText} from 'primereact/inputtext'
+import {Badge} from 'primereact/badge'
+import {Button} from 'primereact/button'
+import {Dialog} from 'primereact/dialog'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faClock, faEnvelope, faFile, faStar, faUsers} from '@fortawesome/free-solid-svg-icons'
+import {useNavigate} from "react-router-dom"
 
 const Navbar = () => {
     const navigate = useNavigate()
-    const [searchVisible, setSearchVisible] = useState(false);
-    const [messagesVisible, setMessagesVisible] = useState(false);
-    const [notificationsVisible, setNotificationsVisible] = useState(false);
+    const [searchVisible, setSearchVisible] = useState(false)
+    const [messagesVisible, setMessagesVisible] = useState(false)
+    const [notificationsVisible, setNotificationsVisible] = useState(false)
 
     const items = [
         {
@@ -42,15 +42,22 @@ const Navbar = () => {
             command: () => {
                 navigate('/vetsmart/apointment')
             }
+        },
+        {
+            label: 'Gestión de Vacunas y Tratamientos',
+            icon: 'pi pi-briefcase',
+            command: () => {
+                navigate('/vetsmart/vaccine')
+            }
         }
-    ];
+    ]
 
     const handleLogout = () => {
-        navigate('/vetsmart/login');
+        navigate('/vetsmart/login')
     }
 
     const handleSeaerch = () => {
-        navigate('/vetsmart/search-result');
+        navigate('/vetsmart/search-result')
     }
 
     const end = (
@@ -68,7 +75,7 @@ const Navbar = () => {
             <Button icon="pi pi-sign-out" className="p-button-rounded p-button-text p-button-plain"
                     onClick={handleLogout}/>
         </div>
-    );
+    )
 
     return (
         <>
@@ -147,7 +154,7 @@ const Navbar = () => {
                 <Button label="See All Notifications" className="p-button-text p-mt-2"/>
             </Dialog>
         </>
-    );
-};
+    )
+}
 
-export default Navbar;
+export default Navbar
