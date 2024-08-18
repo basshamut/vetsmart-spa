@@ -7,6 +7,7 @@ import {Dialog} from 'primereact/dialog'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faClock, faEnvelope, faFile, faStar, faUsers} from '@fortawesome/free-solid-svg-icons'
 import {useNavigate} from "react-router-dom"
+import {clearSession} from "../../utils/session.jsx";
 
 const Navbar = () => {
     const navigate = useNavigate()
@@ -53,6 +54,7 @@ const Navbar = () => {
     ]
 
     const handleLogout = () => {
+        clearSession()
         navigate('/vetsmart/login')
     }
 
