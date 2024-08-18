@@ -18,9 +18,8 @@
 }
 
 .login-logo {
-    width: 100%;
-    max-width: 300px; /* Máximo ancho de la imagen */
+    width: 150px; /* Ajusta este valor según el tamaño que desees */
     height: auto; /* Mantiene la proporción de la imagen */
-    margin-bottom: 20px; /* Espacio entre el logo y el card */
-    object-fit: contain; /* Asegura que la imagen se contenga dentro del contenedor sin cortar */
+    display: block; /* Opcional: para centrar la imagen */
+    margin: 0 auto 20px; /* Opcional: para centrar la imagen y añadir espacio inferior */
 }

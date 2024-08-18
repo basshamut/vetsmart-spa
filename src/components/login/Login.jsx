@@ -5,6 +5,7 @@ import {Button} from 'primereact/button';
 import {Card} from 'primereact/card';
 import 'primeflex/primeflex.css';
 import './Login.css';
+import {startSession} from "../../utils/session.jsx";
 
 const Login = () => {
     const navigate = useNavigate()
@@ -15,6 +16,7 @@ const Login = () => {
         e.preventDefault();
         // Lógica de autenticación
         console.log('Usuario:', username, 'Contraseña:', password);
+        startSession({username, password})
         navigate("/vetsmart/dashboard")
     };
 
